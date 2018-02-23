@@ -56,7 +56,7 @@
 
     </v-navigation-drawer>
 
-    <v-toolbar fixed app flat >
+    <v-toolbar fixed app flat style="background-color: #FFA71A" >
       
       <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
       <v-btn
@@ -70,8 +70,8 @@
       <v-spacer></v-spacer>
 
     </v-toolbar>
-    <v-content>
-      <v-container>
+    <v-content class="maincont">
+      <v-container >
         <nuxt />
       </v-container>
     </v-content>
@@ -99,6 +99,12 @@
 </script>
 
 <style scoped>
+
+.maincont {
+  background-color: #cfd8dc;
+}
+
+
   .SideNav {
     background-color: #262f3d;
   }
