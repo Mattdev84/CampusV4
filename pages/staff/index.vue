@@ -13,8 +13,23 @@
 <v-toolbar>
 
 </v-toolbar>
-<headline>Enrolments</headline>
-       <v-container>
+
+
+ <v-container  grid-list-md>
+<v-layout row wrap>
+    <v-flex xs12 md8>
+      <section>
+  <v-card class="blue-grey lighten-5">
+  <v-toolbar>
+    <v-toolbar-title>Enrolments</v-toolbar-title>
+    <v-spacer></v-spacer>
+    <v-toolbar-items>
+      <v-btn flat>Link One</v-btn>
+      <v-btn flat>Link Two</v-btn>
+      <v-btn flat>Link Three</v-btn>
+    </v-toolbar-items>
+  </v-toolbar>
+
               <v-data-table
     :headers="headers"
     :items="items"
@@ -30,11 +45,12 @@
       <td class="text-xs-right">{{ props.item.iron }}</td>
     </template>
   </v-data-table>
-        </v-container>
-  <v-container>
-  <v-layout>
-    <v-flex xs12>
-      <v-card>
+        </v-card>
+      </section>
+    </v-flex>
+
+  <v-flex xs12 md4>
+<v-card>
         <v-card-title primary-title>
           <div>
             <h3 class="headline mb-0">Enrolments</h3>
@@ -52,6 +68,19 @@
           <v-btn flat color="orange">Explore</v-btn>
         </v-card-actions>
       </v-card>
+
+  </v-flex>
+
+  </v-layout>
+ </v-container>
+
+
+
+ 
+  <v-container>
+  <v-layout>
+    <v-flex xs12>
+      
     </v-flex>
   </v-layout>
   </v-container>
@@ -137,5 +166,7 @@ export default {
             font-size: 36px;
     font-weight: 300;
     }
+
+
 
 </style>
