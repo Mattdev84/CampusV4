@@ -1,6 +1,6 @@
 <template>
 <v-container>
-    <h3>{{title}}</h3>
+    
   <v-layout>
     <v-flex xs12 sm6 offset-sm3>
       <v-card>
@@ -8,7 +8,7 @@
         </v-card-media>
         <v-card-title primary-title>
           <div>
-            <h3 class="headline mb-0">Kangaroo Valley Safari</h3>
+            <h3 class="headline mb-0">{{title}}</h3>
             <div>Located two hours south of Sydney in the <br>Southern Highlands of New South Wales, ...</div>
           </div>
         </v-card-title>
@@ -37,10 +37,7 @@ export default {
       class: null
       }
   },
-beforeRouteEnter(to, from, next) {
-    
-    next(vm=>console.log("hello before router"))
-},
+
 created () {
     console.log('$route')
     this.fetchData();

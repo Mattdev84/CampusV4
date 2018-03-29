@@ -21,21 +21,22 @@ export default {
   },
   
   created () {
-    db.collection('markbooks').where("owner_id","==","MP").get().then(
-      querySnapShot => {
-        querySnapShot.forEach(doc=> {
-         const data = {
-          'id': doc.id,
-          'markbook_id': doc.data().markbook_id,
-          'title' : doc.data().title,
-          'owner_id' : doc.data().owner_id,
-          'acyear' : doc.data().acyear,
-          'class' : doc.data().class
-         }
-         this.markbooks.push(data)
-         }
-        )
-          })
+    this.markbooks = this.$store.getters.myMarkbooks
+    // db.collection('markbooks').where("owner_id","==","MP").get().then(
+    //   querySnapShot => {
+    //     querySnapShot.forEach(doc=> {
+    //      const data = {
+    //       'id': doc.id,
+    //       'markbook_id': doc.data().markbook_id,
+    //       'title' : doc.data().title,
+    //       'owner_id' : doc.data().owner_id,
+    //       'acyear' : doc.data().acyear,
+    //       'class' : doc.data().class
+    //      }
+    //      this.markbooks.push(data)
+    //      }
+    //     )
+    //       })
         }
       }
   

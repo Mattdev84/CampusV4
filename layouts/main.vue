@@ -13,7 +13,7 @@
       <div class="HeaderBar">
           
         <div class="maintitle">
-          <div class="maintitlea">[Campus]</div>
+          <div class="maintitlea"><nuxt-link to="/login" id="SiteLogo">[Campus]</nuxt-link></div>
         </div>
       </div>
     </div>
@@ -29,28 +29,30 @@
           </v-list-tile>
         </v-list>
       </v-toolbar> -->
-  <v-expansion-panel expand dark style="box-shadow: none; border-bottom: 1px solid rgba(255, 255, 255, 0.12);" > 
-    <v-expansion-panel-content v-for="(item,i) in 5" :key="i" :value="item === 2"  style="background-color: #262f3d ">
-      <div slot="header">Item</div>
-      <v-list dark  style="background-color: #19212b">
+      <div id="menlist">
+  <v-expansion-panel expand dark style="box-shadow: none; border-bottom: 1px solid rgba(255, 255, 255, 0.12);"  > 
+    <v-expansion-panel-content v-for="(section,i) in sections" :key="i"  style="background-color: #262f3d ">
+      <div slot="header">{{section.title}}</div>
+      <v-list dark  style="background-color: #19212b; ">
         <v-list-tile
           router
           :to="item.to"
           :key="i"
-          v-for="(item, i) in items"
+          v-for="(item, i) in section.items"
           exact
+          
         >
           <v-list-tile-action>
             <v-icon v-html="item.icon"></v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title v-text="item.title"></v-list-tile-title>
+            <v-list-tile-title v-text="item.title" style="font-size: 14px "></v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
     </v-expansion-panel-content>
   </v-expansion-panel>
-
+      </div>
     </v-navigation-drawer>
 
     <v-toolbar fixed app flat style="background-color: #80c7b9" >
@@ -62,6 +64,7 @@
       >
         <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
       </v-btn>
+
 
 
       <v-spacer></v-spacer>
@@ -79,14 +82,43 @@
 
 <script>
   export default {
+
     data() {
       return {
         clipped: true,
         drawer: true,
-        items: [
-          { icon: 'apps', title: 'Welcome', to: '/' },
-          { icon: 'bubble_chart', title: 'Inspire', to: '/inspire' }
-        ],
+        sections: [
+          {title: 'Home',
+           items: [
+            { icon: 'apps', title: 'Dashboard', to: '/staff' },
+            { icon: 'bubble_chart', title: 'My Markbooks', to: '/markbooks' }]
+          },
+
+          {title: 'Tools',
+           items: [
+            { icon: 'apps', title: 'Welcome', to: '/' },
+            { icon: 'bubble_chart', title: 'Inspire', to: '/inspire' }]
+          },
+          {title: 'Search',
+           items: [
+            { icon: 'apps', title: 'Welcome', to: '/' },
+            { icon: 'bubble_chart', title: 'Inspire', to: '/inspire' }]
+          },
+          {title: 'Information',
+           items: [
+            { icon: 'apps', title: 'Welcome', to: '/' },
+            { icon: 'bubble_chart', title: 'Inspire', to: '/inspire' }]
+          },
+          {title: 'Help',
+           items: [
+            { icon: 'apps', title: 'Welcome', to: '/' },
+            { icon: 'bubble_chart', title: 'Inspire', to: '/inspire' }]
+          },
+          {title: 'Maintenance',
+           items: [
+            { icon: 'apps', title: 'Create User', to: '/maintenance/users/createUser' },
+            { icon: 'bubble_chart', title: 'Manage Users', to: '/maintenance/users/users' }]
+          }],
         miniVariant: false,
         right: true,
         rightDrawer: false
@@ -97,19 +129,31 @@
 
 <style scoped>
 
+#SiteLogo {
+  color: #cfd8dc;
+  text-decoration: none;
+}
+
 .maincont {
   background-color: #cfd8dc;
 }
 
 
+
+.list__tile--link:hover, .list__tile--highlighted {
+  background-color: aqua !important;
+}
+
   .SideNav {
     background-color: #262f3d;
   }
   .ExpandPanel {
-    background-color: #262f3d !important;
+    background-color: #262f3d !important; 
   }
 
- 
+ .menOption {
+   font-size: 14px !important;
+ }
 
   .HeaderBar {
     height: 60px;

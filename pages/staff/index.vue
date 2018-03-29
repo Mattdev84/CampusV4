@@ -74,9 +74,6 @@
   </v-layout>
  </v-container>
 
-
-
- 
   <v-container>
   <v-layout>
     <v-flex xs12>
@@ -92,6 +89,11 @@
 
 export default {
     layout: 'main',
+    middleware: ['authenticated'],
+    //   fetch ({ store, redirect }) {
+    // if (!store.state.auth) {
+    //   return redirect('/login')
+    // }},
     data () {
       return {
         headers: [

@@ -24,16 +24,28 @@
 </template>
 
 <script>
-
-
+import axios from 'axios'
+import db from '@/components/firebaseInit'
+import firebase from 'firebase'
 
 export default {
+    
     data () { 
         return {
         email: '',
         password: ''
         }
     },
+    // created () {
+    //     firebase.auth().currentUser.getIdToken().then(token =>
+    //         axios.get('https://firestore.googleapis.com/v1beta1/projects/campus-prod1/databases/(default)/documents/markbooks?auth='+token).then(
+    //         data => console.log(data)
+    //         ).catch(err => {
+    //         console .log(err)
+    //         })      
+    //     )
+       
+    // },
     methods: {
         login () {
             let logindata = {
